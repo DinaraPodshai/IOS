@@ -1,0 +1,42 @@
+import Foundation
+
+let firstName: String = "Dinara"
+let lastName: String = "Podshai"
+let birthYear: Int = 2005
+let currentYear: Int = 2025  
+let age: Int = currentYear - birthYear 
+let isStudent: Bool = true
+let height: Double = 1.63
+let city: String = "Almaty"
+let country: String = "Kazakhstan"
+
+let favoriteFood: String = "Homemade food"
+let petName: String = "Chokolat"
+
+let hobby: String = "Photography 📸"
+let secondHobby: String = "Reading books 📚"
+let numberOfHobbies: Int = 4
+let favoriteNumber: Int = 1
+let isHobbyCreative: Bool = true
+
+let 🎯 = "Become a successful IT manager and business leader 💼"
+
+let futureGoals: String = "In the future, I want to study for a master's degree in business in Europe or Dubai, " +
+"grow in the field of IT management, and build an international career 🌍"
+
+let lifeStory = """
+My name is \(firstName) \(lastName). 
+I am \(age) years old, born in \(birthYear). 
+I live in \(city), \(country). 
+I am currently a student: \(isStudent). 
+My height is \(height)m.
+
+My favorite hobby is \(hobby), which is creative: \(isHobbyCreative). 
+I also enjoy \(secondHobby). 
+I have \(numberOfHobbies) hobbies in total, and my favorite number is \(favoriteNumber).
+
+Future goal: \(futureGoals)
+Symbolic goal (emoji variable): \(🎯)
+"""
+
+print(lifeStory)
