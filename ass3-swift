@@ -1,0 +1,230 @@
+import Foundation
+
+// ===============================
+// MARK: - Product Struct
+// ===============================
+struct Product {
+    enum Category: String {
+        case electronics, clothing, food, books
+    }
+    
+    let id: String
+    let name: String
+    let price: Double
+    let category: Category
+    let description: String
+    
+    var displayPrice: String {
+        return String(format: "$%.2f", price)
+    }
+    
+    init?(id: String, name: String, price: Double, category: Category, description: String) {
+        guard price > 0 else {
+            print("❌ Цена должна быть положительной.")
+            return nil
+        }
+        self.id = id
+        self.name = name
+        self.price = price
+        self.category = category
+        self.description = description
+    }
+}
+
+// ===============================
+// MARK: - CartItem Struct
+// ===============================
+struct CartItem {
+    let product: Product
+    var quantity: Int
+    
+    var subtotal: Double {
+        return product.price * Double(quantity)
+    }
+    
+    mutating func updateQuantity(_ newQuantity: Int) {
+        if newQuantity > 0 {
+            quantity = newQuantity
+        } else {
+            print("❌ Количество должно быть больше 0.")
+        }
+    }
+    
+    mutating func increaseQuantity(by amount: Int) {
+        if amount > 0 {
+            quantity += amount
+        }
+    }
+}
+
+// ===============================
+// MARK: - ShoppingCart Class
+// ===============================
+class ShoppingCart {
+    private(set) var items: [CartItem] = []
+    var discountCode: String?
+    
+    func addItem(product: Product, quantity: Int = 1) {
+        if let index = items.firstIndex(where: { $0.product.id == product.id }) {
+            items[index].increaseQuantity(by: quantity)
+        } else {
+            items.append(CartItem(product: product, quantity: quantity))
+        }
+    }
+    
+    func removeItem(productId: String) {
+        items.removeAll { $0.product.id == productId }
+    }
+    
+    func updateItemQuantity(productId: String, quantity: Int) {
+        if let index = items.firstIndex(where: { $0.product.id == productId }) {
+            if quantity > 0 {
+                items[index].updateQuantity(quantity)
+            } else {
+                removeItem(productId: productId)
+            }
+        }
+    }
+    
+    func clearCart() {
+        items.removeAll()
+    }
+    
+    var subtotal: Double {
+        return items.reduce(0) { $0 + $1.subtotal }
+    }
+    
+    var discountAmount: Double {
+        guard let code = discountCode else { return 0 }
+        switch code {
+        case "SAVE10": return subtotal * 0.10
+        case "SAVE20": return subtotal * 0.20
+        default: return 0
+        }
+    }
+    
+    var total: Double {
+        return subtotal - discountAmount
+    }
+    
+    var itemCount: Int {
+        return items.reduce(0) { $0 + $1.quantity }
+    }
+    
+    var isEmpty: Bool {
+        return items.isEmpty
+    }
+}
+
+// ===============================
+// MARK: - Address Struct
+// ===============================
+struct Address {
+    let street: String
+    let city: String
+    let zipCode: String
+    let country: String
+    
+    var formattedAddress: String {
+        """
+        \(street)
+        \(city), \(zipCode)
+        \(country)
+        """
+    }
+}
+
+// ===============================
+// MARK: - Order Struct
+// ===============================
+struct Order {
+    let orderId: String
+    let items: [CartItem]
+    let subtotal: Double
+    let discountAmount: Double
+    let total: Double
+    let timestamp: Date
+    let shippingAddress: Address
+    
+    init(from cart: ShoppingCart, shippingAddress: Address) {
+        self.orderId = UUID().uuidString
+        self.items = cart.items
+        self.subtotal = cart.subtotal
+        self.discountAmount = cart.discountAmount
+        self.total = cart.total
+        self.timestamp = Date()
+        self.shippingAddress = shippingAddress
+    }
+    
+    var itemCount: Int {
+        items.reduce(0) { $0 + $1.quantity }
+    }
+}
+
+// ===============================
+// MARK: - User Class (Bonus)
+// ===============================
+class User {
+    let userId: String
+    let name: String
+    let email: String
+    private(set) var orderHistory: [Order] = []
+    
+    init(name: String, email: String) {
+        self.userId = UUID().uuidString
+        self.name = name
+        self.email = email
+    }
+    
+    func placeOrder(_ order: Order) {
+        orderHistory.append(order)
+    }
+    
+    var totalSpent: Double {
+        orderHistory.reduce(0) { $0 + $1.total }
+    }
+}
+
+// ===============================
+// MARK: - Test Scenarios
+// ===============================
+print("🛍️ TEST SCENARIOS")
+
+if let laptop = Product(id: "P001", name: "Laptop", price: 999.99, category: .electronics, description: "Powerful laptop"),
+   let book = Product(id: "P002", name: "Swift Book", price: 29.99, category: .books, description: "Learn Swift"),
+   let headphones = Product(id: "P003", name: "Headphones", price: 59.99, category: .electronics, description: "Noise-cancelling") {
+    
+    let cart = ShoppingCart()
+    cart.addItem(product: laptop, quantity: 1)
+    cart.addItem(product: book, quantity: 2)
+    cart.addItem(product: laptop, quantity: 1)
+    
+    print("Subtotal: \(cart.subtotal)")
+    print("Item count: \(cart.itemCount)")
+    
+    cart.discountCode = "SAVE10"
+    print("Total with discount: \(cart.total)")
+    
+    cart.removeItem(productId: book.id)
+    
+    func modifyCart(_ c: ShoppingCart) {
+        c.addItem(product: headphones, quantity: 1)
+    }
+    modifyCart(cart)
+    print("Cart item count after modify: \(cart.itemCount)")
+    
+    var item1 = CartItem(product: laptop, quantity: 1)
+    var item2 = item1
+    item2.updateQuantity(5)
+    print("Item1 quantity: \(item1.quantity), Item2 quantity: \(item2.quantity)")
+    
+    let address = Address(street: "Main St 1", city: "Almaty", zipCode: "050000", country: "Kazakhstan")
+    let order = Order(from: cart, shippingAddress: address)
+    
+    cart.clearCart()
+    print("Order item count: \(order.itemCount), Cart item count: \(cart.itemCount)")
+    
+    let user = User(name: "Dinara", email: "dinara@example.com")
+    user.placeOrder(order)
+    print("User total spent: \(user.totalSpent)")
+}
