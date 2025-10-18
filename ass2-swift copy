@@ -1,1 +1,99 @@
-https://swiftfiddle.com/dndflrzvfveifdnpzhisohlopm
+// -------------------------------------------------------------
+// Problem 4: Shopping List Manager
+// -------------------------------------------------------------
+var shoppingList: [String] = ["Apples", "Juice", "Butter"]
+print("Shopping List Manager:")
+print("Current list: \(shoppingList)")
+shoppingList.append("Chocolate")
+print("After adding Chocolate: \(shoppingList)")
+if let index = shoppingList.firstIndex(of: "Juice") {
+    shoppingList.remove(at: index)
+}
+print("After removing Juice: \(shoppingList)")
+
+// -------------------------------------------------------------
+// Problem 5: Word Frequency Counter
+// -------------------------------------------------------------
+let sentence = "Learning Swift is fun and Swift makes coding easier"
+let words = sentence.lowercased().components(separatedBy: CharacterSet.alphanumerics.inverted).filter { !$0.isEmpty }
+
+var wordCount: [String: Int] = [:]
+for word in words {
+    wordCount[word, default: 0] += 1
+}
+print("Word frequencies:", wordCount)
+
+// -------------------------------------------------------------
+// Problem 6: Fibonacci Sequence
+// -------------------------------------------------------------
+func fibonacci(_ n: Int) -> [Int] {
+    if n <= 0 { return [] }
+    if n == 1 { return [0] }
+    var series = [0, 1]
+    while series.count < n {
+        series.append(series[series.count - 1] + series[series.count - 2])
+    }
+    return series
+}
+print("Fibonacci(8):", fibonacci(8))
+
+// -------------------------------------------------------------
+// Problem 7: Grade Calculator
+// -------------------------------------------------------------
+let grades = ["Amina": 92, "Daniel": 78, "Emily": 65, "Farid": 88]
+let values = Array(grades.values)
+let avgScore = Double(values.reduce(0, +)) / Double(values.count)
+let highest = values.max() ?? 0
+let lowest = values.min() ?? 0
+
+print("Average Score: \(avgScore), Highest: \(highest), Lowest: \(lowest)")
+for (name, grade) in grades {
+    let performance = Double(grade) >= avgScore ? "above average" : "below average"
+    print("\(name): \(grade) (\(performance))")
+}
+
+// -------------------------------------------------------------
+// Problem 8: Palindrome Checker
+// -------------------------------------------------------------
+func isPalindrome(_ text: String) -> Bool {
+    let formatted = text.lowercased().filter { $0.isLetter }
+    return formatted == String(formatted.reversed())
+}
+print("Is 'Level' palindrome? \(isPalindrome("Level"))")
+print("Is 'Swift' palindrome? \(isPalindrome("Swift"))")
+
+// -------------------------------------------------------------
+// Problem 9: Simple Calculator
+// -------------------------------------------------------------
+func add(_ a: Double, _ b: Double) -> Double { a + b }
+func subtract(_ a: Double, _ b: Double) -> Double { a - b }
+func multiply(_ a: Double, _ b: Double) -> Double { a * b }
+func divide(_ a: Double, _ b: Double) -> Double? { b == 0 ? nil : a / b }
+
+let number1 = 12.0, number2 = 3.0
+print("Calculator:")
+print("Add: \(add(number1, number2))")
+print("Subtract: \(subtract(number1, number2))")
+print("Multiply: \(multiply(number1, number2))")
+if let division = divide(number1, number2) {
+    print("Divide: \(division)")
+} else {
+    print("Error: Cannot divide by zero")
+}
+
+// -------------------------------------------------------------
+// Problem 10: Unique Characters
+// -------------------------------------------------------------
+func hasUniqueCharacters(_ text: String) -> Bool {
+    var seenChars: Set<Character> = []
+    for char in text {
+        if seenChars.contains(char) {
+            return false
+        }
+        seenChars.insert(char)
+    }
+    return true
+}
+print("Has 'Coding' unique characters? \(hasUniqueCharacters("Coding"))")
+print("Has 'Apple' unique characters? \(hasUniqueCharacters("Apple"))")
+
