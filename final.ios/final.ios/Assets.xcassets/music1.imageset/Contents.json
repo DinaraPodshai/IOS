@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Lose My Mind (feat_ Doja Cat) [From F1® The Movie].jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Lose My Mind (feat_ Doja Cat) [From F1® The Movie] 1.jpeg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Lose My Mind (feat_ Doja Cat) [From F1® The Movie] 2.jpeg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

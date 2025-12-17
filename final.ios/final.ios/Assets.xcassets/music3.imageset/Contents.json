@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "NOT ALL HEROES WEAR CAPS.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "NOT ALL HEROES WEAR CAPS 1.jpeg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "NOT ALL HEROES WEAR CAPS 2.jpeg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
