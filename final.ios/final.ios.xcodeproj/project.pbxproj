@@ -24,6 +24,14 @@
 		842198802EF1A3DB00AA8740 /* MusicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421987F2EF1A3DB00AA8740 /* MusicItem.swift */; };
 		842198822EF1A40200AA8740 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842198812EF1A40200AA8740 /* SampleData.swift */; };
 		8494644E2EF1D68600CDB9A8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494644D2EF1D68600CDB9A8 /* DetailViewController.swift */; };
+		849464502EF2DCE000CDB9A8 /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494644F2EF2DCE000CDB9A8 /* GenreCell.swift */; };
+		849464522EF2DEF500CDB9A8 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849464512EF2DEF500CDB9A8 /* Genre.swift */; };
+		849464542EF3983D00CDB9A8 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849464532EF3983D00CDB9A8 /* LibraryCell.swift */; };
+		849774212EF3CC7500A32CCD /* Drake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8497741F2EF3CC7500A32CCD /* Drake.mp3 */; };
+		849774222EF3CC7500A32CCD /* LMM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 849774202EF3CC7500A32CCD /* LMM.mp3 */; };
+		849774262EF3CC8300A32CCD /* All the star.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 849774232EF3CC8300A32CCD /* All the star.mp3 */; };
+		849774272EF3CC8300A32CCD /* Around Me .mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 849774242EF3CC8300A32CCD /* Around Me .mp3 */; };
+		849774282EF3CC8300A32CCD /* Goosebumps.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 849774252EF3CC8300A32CCD /* Goosebumps.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +73,14 @@
 		8421987F2EF1A3DB00AA8740 /* MusicItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItem.swift; sourceTree = "<group>"; };
 		842198812EF1A40200AA8740 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		8494644D2EF1D68600CDB9A8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8494644F2EF2DCE000CDB9A8 /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
+		849464512EF2DEF500CDB9A8 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		849464532EF3983D00CDB9A8 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
+		8497741F2EF3CC7500A32CCD /* Drake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Drake.mp3; path = ../../../Downloads/Drake.mp3; sourceTree = "<group>"; };
+		849774202EF3CC7500A32CCD /* LMM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = LMM.mp3; path = ../../../Downloads/LMM.mp3; sourceTree = "<group>"; };
+		849774232EF3CC8300A32CCD /* All the star.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "All the star.mp3"; path = "../../../Downloads/All the star.mp3"; sourceTree = "<group>"; };
+		849774242EF3CC8300A32CCD /* Around Me .mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Around Me .mp3"; path = "../../../Downloads/Around Me .mp3"; sourceTree = "<group>"; };
+		849774252EF3CC8300A32CCD /* Goosebumps.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Goosebumps.mp3; path = ../../../Downloads/Goosebumps.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +111,11 @@
 		842198392EF156ED00AA8740 = {
 			isa = PBXGroup;
 			children = (
+				849774202EF3CC7500A32CCD /* LMM.mp3 */,
+				8497741F2EF3CC7500A32CCD /* Drake.mp3 */,
+				849774232EF3CC8300A32CCD /* All the star.mp3 */,
+				849774242EF3CC8300A32CCD /* Around Me .mp3 */,
+				849774252EF3CC8300A32CCD /* Goosebumps.mp3 */,
 				842198442EF156ED00AA8740 /* final.ios */,
 				8421985B2EF156F200AA8740 /* final.iosTests */,
 				842198652EF156F200AA8740 /* final.iosUITests */,
@@ -119,8 +140,11 @@
 				842198472EF156ED00AA8740 /* SceneDelegate.swift */,
 				842198492EF156ED00AA8740 /* ViewController.swift */,
 				8421984B2EF156ED00AA8740 /* Main.storyboard */,
+				849464532EF3983D00CDB9A8 /* LibraryCell.swift */,
+				8494644F2EF2DCE000CDB9A8 /* GenreCell.swift */,
 				8421987D2EF1A1B900AA8740 /* PlaylistCell.swift */,
 				8421987F2EF1A3DB00AA8740 /* MusicItem.swift */,
+				849464512EF2DEF500CDB9A8 /* Genre.swift */,
 				842198812EF1A40200AA8740 /* SampleData.swift */,
 				842198752EF1956C00AA8740 /* HomeViewController.swift */,
 				8494644D2EF1D68600CDB9A8 /* DetailViewController.swift */,
@@ -255,9 +279,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849774272EF3CC8300A32CCD /* Around Me .mp3 in Resources */,
+				849774262EF3CC8300A32CCD /* All the star.mp3 in Resources */,
 				842198522EF156F100AA8740 /* LaunchScreen.storyboard in Resources */,
 				8421984F2EF156F100AA8740 /* Assets.xcassets in Resources */,
+				849774212EF3CC7500A32CCD /* Drake.mp3 in Resources */,
+				849774282EF3CC8300A32CCD /* Goosebumps.mp3 in Resources */,
 				8421984D2EF156ED00AA8740 /* Main.storyboard in Resources */,
+				849774222EF3CC7500A32CCD /* LMM.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8494644E2EF1D68600CDB9A8 /* DetailViewController.swift in Sources */,
+				849464542EF3983D00CDB9A8 /* LibraryCell.swift in Sources */,
 				842198802EF1A3DB00AA8740 /* MusicItem.swift in Sources */,
 				842198782EF1980B00AA8740 /* SearchViewController.swift in Sources */,
 				8421984A2EF156ED00AA8740 /* ViewController.swift in Sources */,
@@ -291,8 +321,10 @@
 				842198482EF156ED00AA8740 /* SceneDelegate.swift in Sources */,
 				8421987C2EF1982A00AA8740 /* ProfileViewController.swift in Sources */,
 				8421987A2EF1981C00AA8740 /* LibraryViewController.swift in Sources */,
+				849464522EF2DEF500CDB9A8 /* Genre.swift in Sources */,
 				842198762EF1956C00AA8740 /* HomeViewController.swift in Sources */,
 				8421987E2EF1A1B900AA8740 /* PlaylistCell.swift in Sources */,
+				849464502EF2DCE000CDB9A8 /* GenreCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

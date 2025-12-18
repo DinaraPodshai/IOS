@@ -62,14 +62,10 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = SampleData.playlists[indexPath.item]
+        let selectedItem = SampleData.playlists[indexPath.item]
 
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let detailVC = storyboard.instantiateViewController(
-            withIdentifier: "DetailViewController"
-        ) as! DetailViewController
-
-        detailVC.item = item
+        let detailVC = DetailViewController(item: selectedItem)
+        
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
